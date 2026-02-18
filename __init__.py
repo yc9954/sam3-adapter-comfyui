@@ -1,6 +1,10 @@
-# ComfyUI entry point when this repo is git-cloned directly into custom_nodes/.
-# The actual node lives in comfyui_node/; this file just re-exports the mappings
-# so ComfyUI can find them at the repo root.
+import sys
+import os
+
+_HERE = os.path.dirname(os.path.abspath(__file__))
+if _HERE not in sys.path:
+    sys.path.insert(0, _HERE)
+
 from comfyui_node import NODE_CLASS_MAPPINGS, NODE_DISPLAY_NAME_MAPPINGS
 
 __all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS"]
